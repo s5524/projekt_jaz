@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{hotelBean.hotels}" var="item">
+                <f:facet name="header">#{msg.hotelsLabel}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.nameLabel}</f:facet>
+                    <h:commandLink value="#{item.name}" action="#{hotelBean.showHotel}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.phoneLabel}</f:facet>
+                    #{item.phone}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.actionEdit}" action="#{hotelBean.editHotel}"/>, 
+                    <h:commandLink value="#{msg.actionDelete}" action="#{hotelBean.deleteHotel}"/>
+                </h:column>
+            </h:dataTable>
+            <p>
+                <h:commandLink value="#{msg.addHotelLink}" action="#{hotelBean.addHotel}" />
+            </p>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>

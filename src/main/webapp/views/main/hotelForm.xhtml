@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="personform">
+        <h:panelGrid columns="3">
+
+            <h:outputText value="#{msg.nameLabel}" />
+            <h:inputText id="subject" value="#{hotelBean.hotel.name}" size="20">
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="subject" style="color:red" />
+            
+            <h:outputText value="#{msg.adressLabel}" />
+            <h:inputText id="adress" value="#{hotelBean.hotel.adress}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="adress" style="color:red" />
+            
+            <h:outputText value="#{msg.phoneLabel}" />
+            <h:inputText id="phone" value="#{hotelBean.hotel.phone}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="adress" style="color:red" />
+        </h:panelGrid>
+        <p>
+            <h:commandButton value="#{msg.saveHotel}" action="#{hotelBean.persistHotel}" />
+        </p>
+    </h:form>
+</ui:composition>
+
